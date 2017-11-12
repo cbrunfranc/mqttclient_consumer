@@ -10,10 +10,10 @@ function start()
 function initConnectionToBroker()
 {
   var mqttbroker = mqtt.connect('mqtt://localhost:1883');
-  mqttbroker.on ('connect', connectToBroker);
+  mqttbroker.on ('connect', OnConnectToBroker);
 }
 
-function connectToBroker()
+function OnConnectToBroker()
 {
   console.log ("mqtt_clientconsumer connected to mqtt broker...");
 }
