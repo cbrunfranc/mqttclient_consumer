@@ -49,6 +49,10 @@ function connectToMQTTBroker()
     
    mqttclient = mqtt.connect('mqtt://localhost:1883');
     
+  //create the client - if it is does not exist 
+  //to do at the start of the application
+  //attention à la gestion du reconnect + clean = true or false
+    
   //Test is the mqtt broker is alive
     
   //Test is mqtt client is already connected
