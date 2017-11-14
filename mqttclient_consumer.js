@@ -11,7 +11,7 @@ function start()
     shutdown.Initialize();
     
     //connect to mqtt broker
-    initConnectionToBroker();
+    connectToMQTTBroker();
     
     //initialize publish message for online/offline
     publishMsgOnline();
@@ -43,14 +43,22 @@ function consumeMessage()
     
 }
 
-function initConnectionToBroker()
+function connectToMQTTBroker()
 {
+   client = new mqtt.client();
+    
+   mqttclient = mqtt.connect('mqtt://localhost:1883');
+    
+  //Test is the mqtt broker is alive
+    
+  //Test is mqtt client is already connected
+    
+  //Connect to mqttclient
   mqttclient = mqtt.connect('mqtt://localhost:1883');
     
-  //need to test if we are connected with mqttclient.connected - in case mqttclient is not started ?
   //intercep 'error' to handle connection failed
-  //intercep 'clsoe' to handle disconnection
-  mqttclient.on ('connect', OnConnectToBroker);
+  //intercep 'close' to handle disconnection
+  //mqttclient.on ('connect', OnConnectToBroker);
 }
 
 function OnConnectToBroker()
