@@ -14,7 +14,7 @@ function start()
     connectToMQTTBroker();
     
     //initialize publish message for online/offline
-    publishMsgOnline();
+    //publishMsgOnline();
       
     //initialize subscription to message
     subscribeMsg();
