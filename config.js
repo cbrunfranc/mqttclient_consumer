@@ -1,6 +1,4 @@
-var config = {};
+var mqttbroker_config = {};
+mqttbroker_config.mqttbroker_host = 'mqtt://localhost:1883';
 
-//config.test = {};
-//config.test.toto = 'hello';
-
-exports.config = config;
+exports.mqttbroker_config = mqttbroker_config;
