@@ -1,6 +1,6 @@
 var mqtt = require ("mqtt");
 var config = require ("./config.js");
-var shutdown = require ("./watchdog_shutdown.js");
+var shutdown = require ("./shutdown.js");
 var mqttclient = new mqtt.client();
 
 function start()
