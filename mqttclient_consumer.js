@@ -1,6 +1,7 @@
 var mqtt = require ("mqtt");
 var config = require ("./config.js");
 var shutdown = require ("./watchdog_shutdown.js");
+var mqttclient = '';
 
 function start()
 {
@@ -44,8 +45,10 @@ function consumeMessage()
 
 function initConnectionToBroker()
 {
-  var mqttbroker = mqtt.connect('mqtt://localhost:1883');
-  mqttbroker.on ('connect', OnConnectToBroker);
+  mqttclient = mqtt.connect('mqtt://localhost:1883');
+    
+  //need to test if we are connected with mqttclient.connected ?
+  mqttclient.on ('connect', OnConnectToBroker);
 }
 
 function OnConnectToBroker()
