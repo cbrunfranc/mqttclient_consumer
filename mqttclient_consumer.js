@@ -47,7 +47,9 @@ function initConnectionToBroker()
 {
   mqttclient = mqtt.connect('mqtt://localhost:1883');
     
-  //need to test if we are connected with mqttclient.connected ?
+  //need to test if we are connected with mqttclient.connected - in case mqttclient is not started ?
+  //intercep 'error' to handle connection failed
+  //intercep 'clsoe' to handle disconnection
   mqttclient.on ('connect', OnConnectToBroker);
 }
 
