@@ -1,10 +1,30 @@
 var mqtt = require ("mqtt");
 var config = require ("./config.js");
+var shutdown = require ("./watchdog_shutdown.js");
 
 function start()
 {
-  console.log ("mqtt_clientconsumer is starting...");
-  initConnectionToBroker();
+    try
+  {
+    //initialize event for a graceful shutdown
+    shutdown.Initialize();
+    
+    //connect to mqtt broker
+    initConnectionToBroker();
+    
+    //initialize publish message for online/offline
+    initPublishMsgOnLineOffLine();
+    
+  }
+  catch (err)
+  {
+    shutdown.GracefulShutdown(err);
+  }
+}
+
+function initPublishMsgOnLineOffLine()
+{
+  
 }
 
 function initConnectionToBroker()
@@ -19,4 +39,3 @@ function OnConnectToBroker()
 }
 
 start();
-//exports.start = start ;
