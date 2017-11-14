@@ -13,7 +13,7 @@ function start()
     initConnectionToBroker();
     
     //initialize publish message for online/offline
-    initPublishMsgOnLineOffLine();
+    PublishMsgOnline();
     
   }
   catch (err)
@@ -22,9 +22,19 @@ function start()
   }
 }
 
-function initPublishMsgOnLineOffLine()
+function PublishMsgOnline()
 {
   
+}
+
+function PublishMsgOffline()
+{
+  
+}
+
+function consumeMessage()
+{
+    
 }
 
 function initConnectionToBroker()
