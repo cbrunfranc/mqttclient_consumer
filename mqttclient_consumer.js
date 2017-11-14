@@ -1,7 +1,7 @@
 var mqtt = require ("mqtt");
 var config = require ("./config.js");
 var shutdown = require ("./watchdog_shutdown.js");
-var mqttclient = '';
+var mqttclient = new mqtt.client();
 
 function start()
 {
@@ -45,7 +45,7 @@ function consumeMessage()
 
 function connectToMQTTBroker()
 {
-   client = new mqtt.client();
+   //client = new mqtt.client();
     
    mqttclient = mqtt.connect('mqtt://localhost:1883');
     
@@ -53,6 +53,7 @@ function connectToMQTTBroker()
   //to do  - initialize all client - at the start of the application
   //pas dans cette fonction
   //attention à la gestion du reconnect + clean = true or false
+  //test if connect erase the value and must be set after (the connect if the connect is ok)
     
   //Test is the mqtt broker is alive
     
